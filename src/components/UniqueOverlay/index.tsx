@@ -1,0 +1,34 @@
+import { useTransform } from 'framer-motion';
+import React from 'react';
+import useWrapperScroll from '../Model/useWrapperScroll';
+
+import { Container,Header, Logo, Burger, Footer } from './styles';
+
+const UniqueOverlay: React.FC = () => {
+  const {scrollYProgress} = useWrapperScroll()
+  const opacity = useTransform(scrollYProgress, [0.9,1], [0 , 1])
+  return (
+    <Container>
+      <Header>
+        <Logo />
+        <Burger />
+      </Header>
+
+      <Footer style={{opacity}}> 
+        <ul>
+          <li>            
+              Clone da página inicial da Tesla               
+          </li>
+          <li>
+            Todos os direitos reservados para Tesla                
+          </li>
+          <li>
+            by GodoyDev
+          </li>
+        </ul>
+      </Footer>
+    </Container>
+  );
+};
+
+export default UniqueOverlay;
